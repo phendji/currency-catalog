@@ -1,10 +1,16 @@
 # CurrencyCatalog
 
+Application that display a currency list. The click on a currency display detail of this currency.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+
+Pré requis
+    - nodejs > 6.9.x
+	- npm > 4.x
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve or npm run start` for a dev server. Navigate to `http://localhost:8000/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
