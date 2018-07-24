@@ -5,16 +5,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CurrenciesComponent } from './currencies/currencies.component';
 import { CurrenciesService } from './services/currencies.service';
+import { CurrencyDetailComponent } from './currency-detail/currency-detail.component';
+
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CurrenciesComponent
+    CurrenciesComponent,
+    CurrencyDetailComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [CurrenciesService],
   bootstrap: [AppComponent]
