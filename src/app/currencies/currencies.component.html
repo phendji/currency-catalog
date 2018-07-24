@@ -1,7 +1,9 @@
 <ul>
   <li *ngFor="let currency of listOfCurrencies">
-    <span>ID: {{currency.id}}</span>
-    <span>Type: {{currency.attributes.currency_type}}</span>
-    <span>Symbol: {{currency.attributes.symbol}}</span>
+    <a routerLink="/currency/{{currency.id}}">
+      <span>ID: {{currency.id}}</span>
+      <span>Type: {{currency.attributes.currency_type}}</span>
+      <span>Symbol: {{currency.attributes.symbol}}</span>
+    </a>
   </li>
 </ul>

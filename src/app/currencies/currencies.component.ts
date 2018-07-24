@@ -19,6 +19,7 @@ export class CurrenciesComponent implements OnInit {
     this.currenciesService.getCurrencies()
       .subscribe((data: Currencies) => {
         this.listOfCurrencies = data;
+        console.log('listOfCurrencies : ', this.listOfCurrencies);
       });
   }
 
