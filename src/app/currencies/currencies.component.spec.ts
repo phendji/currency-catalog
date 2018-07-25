@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CurrenciesComponent } from './currencies.component';
 import { CurrenciesService } from '../services/currencies.service';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('CurrenciesComponent', () => {
   let component: CurrenciesComponent;
@@ -12,7 +13,8 @@ describe('CurrenciesComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ CurrenciesComponent ],
       imports: [
-        HttpClientModule
+        HttpClientModule,
+        RouterTestingModule
       ],
       providers: [
         CurrenciesService

@@ -3,18 +3,25 @@ import { AppComponent } from './app.component';
 import { CurrenciesComponent } from './currencies/currencies.component';
 import { CurrenciesService } from './services/currencies.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { CurrencyDetailComponent } from './currency-detail/currency-detail.component';
+import { APP_BASE_HREF } from '@angular/common';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        CurrenciesComponent
+        CurrenciesComponent,
+        CurrencyDetailComponent
       ],
       imports: [
-        HttpClientModule
+        HttpClientModule,
+        AppRoutingModule
       ],
       providers: [
-        CurrenciesService
+        CurrenciesService,
+        {provide: APP_BASE_HREF, useValue: '/'}
       ]
     }).compileComponents();
   }));

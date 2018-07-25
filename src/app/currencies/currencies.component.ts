@@ -16,11 +16,21 @@ export class CurrenciesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getCurrenciesMock();
+   // this.getCurrencies();
+  }
+
+
+  private getCurrenciesMock() {
     this.currenciesService.getCurrencies()
       .subscribe((data: Currencies) => {
         this.listOfCurrencies = data;
-        console.log('listOfCurrencies : ', this.listOfCurrencies);
       });
   }
 
+  // private getCurrencies() {
+  //   this.currenciesService.getListOfCurrencies().subscribe(data => {
+  //     console.log('data : ', data);
+  //   })
+  // }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '../../../node_modules/@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { CurrenciesService } from '../services/currencies.service';
 import { Currencies } from '../interfaces/currencies';
@@ -25,18 +25,11 @@ export class CurrencyDetailComponent implements OnInit {
     this.getCurrency();
   }
 
-  public getCurrency(): void {
+  private getCurrency() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    // this.currenciesService.getCurrencyById(id)
-    //   .subscribe((data: Currencies) => {
-    //   this.currency = data;
-    //   console.log('currency selected :', this.currency);
-    // });
-    this.currenciesService.getCurrenciesTypeAny()
-      .subscribe((currencies: any) => {
-        this.currency = currencies.find(currency => currency.id === id);
-        console.log('currency : ', this.currency);
-      });
+    this.currenciesService.getCurrencyById(id).subscribe(currency => {
+      this.currency = currency;
+    });
   }
 
   public goBack() {
