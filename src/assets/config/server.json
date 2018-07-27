@@ -1,3 +1,11 @@
 {
-  "OPENFINTECH":{ "url": "https://api.openfintech.io" }
+  "OPENFINTECH":
+  { 
+    "BASE_URL": "https://api.openfintech.io",
+    "VERSION": "v1",
+    "API": "currencies",
+    "HEADER": {
+      "ACCEPT": "application/vnd.api+json"
+    }
+  }
 }

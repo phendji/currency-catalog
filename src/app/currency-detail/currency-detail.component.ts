@@ -27,8 +27,8 @@ export class CurrencyDetailComponent implements OnInit {
 
   private getCurrency() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.currenciesService.getCurrencyById(id).subscribe(currency => {
-      this.currency = currency;
+    this.currenciesService.getCurrencyById(id).subscribe(res => {
+      this.currency = res['data'];
     });
   }
 

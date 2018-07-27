@@ -1,6 +1,7 @@
+<h1> {{ titlePage }} </h1>
 <ul>
-  <li *ngFor="let currency of listOfCurrencies">
-    <a routerLink="/currency/{{currency.id}}">
+  <li *ngFor="let currency of currencies">
+    <a routerLink="/currencies/{{currency.id}}">
       <span>ID: {{currency.id}}</span>
       <span>Type: {{currency.attributes.currency_type}}</span>
       <span>Symbol: {{currency.attributes.symbol}}</span>

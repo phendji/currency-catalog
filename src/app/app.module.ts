@@ -8,6 +8,8 @@ import { CurrenciesService } from './services/currencies.service';
 import { CurrencyDetailComponent } from './currency-detail/currency-detail.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpService } from './services/http.service';
+import { ConfigService } from './services/config.service';
 
 
 @NgModule({
@@ -21,7 +23,11 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [CurrenciesService],
+  providers: [
+    CurrenciesService,
+    HttpService,
+    ConfigService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

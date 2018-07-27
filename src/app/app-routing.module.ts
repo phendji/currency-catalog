@@ -2,11 +2,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CurrenciesComponent } from './currencies/currencies.component';
 import { CurrencyDetailComponent } from './currency-detail/currency-detail.component';
+import { ConfigService } from './services/config.service';
+import { AppComponent } from './app.component';
 
 
 const appRoutes: Routes = [
-  { path: '', component: CurrenciesComponent },
-  { path: 'currency/:id', component: CurrencyDetailComponent }
+  {
+    path: '',
+    component: AppComponent,
+    children: [
+      { path: '', component: CurrenciesComponent},
+      { path: 'currencies/:id', component: CurrencyDetailComponent }
+    ], canActivate: [ConfigService]
+  }
 ];
 
 @NgModule({

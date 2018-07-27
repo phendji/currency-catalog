@@ -9,28 +9,23 @@ import { Currencies } from '../interfaces/currencies';
 })
 export class CurrenciesComponent implements OnInit {
 
-  public listOfCurrencies: Currencies;
+  public currencies: any;
+  public titlePage: string;
 
   constructor(
     private currenciesService: CurrenciesService
-  ) { }
+  ) {
+    this.titlePage = 'Available currencies';
+  }
 
   ngOnInit() {
-    this.getCurrenciesMock();
-   // this.getCurrencies();
+    this.getCurrencies();
   }
 
-
-  private getCurrenciesMock() {
-    this.currenciesService.getCurrencies()
-      .subscribe((data: Currencies) => {
-        this.listOfCurrencies = data;
-      });
+  private getCurrencies() {
+    this.currenciesService.getListOfCurrencies().subscribe(res => {
+      console.log('currencies :', res);
+      this.currencies = res['data'];
+    });
   }
-
-  // private getCurrencies() {
-  //   this.currenciesService.getListOfCurrencies().subscribe(data => {
-  //     console.log('data : ', data);
-  //   })
-  // }
 }
