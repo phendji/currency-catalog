@@ -8,3 +8,8 @@
     </a>
   </li>
 </ul>
+
+<app-pagination
+  *ngIf="paginationConfig !== null"
+  [pagination]="paginationConfig"
+  (pageOrRecordsChange)="searchCurrencies($event)"></app-pagination>

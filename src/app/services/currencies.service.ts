@@ -51,14 +51,14 @@ export class CurrenciesService {
     return this.httpService.get(url, options);
   }
 
-  public getListOfCurrencies() {
+  public getListOfCurrencies(recordsPerPage: number, currentPage: number) {
 
     let httpOptions = new HttpHeaders();
         httpOptions = httpOptions.append('Content-Type', this.contentType);
 
     let httpParams = new HttpParams();
-        httpParams = httpParams.append('page[number]', '1');
-        httpParams = httpParams.append('page[size]', '3');
+        httpParams = httpParams.append('page[number]', String(currentPage));
+        httpParams = httpParams.append('page[size]', String(recordsPerPage));
 
     const options = {
       headers: httpOptions,
