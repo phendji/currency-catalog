@@ -6,8 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PaginationPipe implements PipeTransform {
 
   transform(value, args: any): any {
-    console.log('value :', value);
-    console.log('args :', args);
     const res = [];
     const currentPage = args[0];
     const limit = args[1];
@@ -27,10 +25,8 @@ export class PaginationPipe implements PipeTransform {
       for (let i = indexElt; i <= value; i++) {
         if (res.length <= limit) {
           res.push(i);
-          console.log('res : ', res);
         }
         if (res.length === limit) {
-          console.log('res : ', res);
           return res;
         }
       }

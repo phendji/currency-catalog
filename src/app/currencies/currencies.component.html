@@ -1,4 +1,8 @@
 <h1> {{ titlePage }} </h1>
+
+<app-search
+  (filtersEmit)="searchCurrenciesByFilters($event)"></app-search>
+
 <ul>
   <li *ngFor="let currency of currencies">
     <a routerLink="/currencies/{{currency.id}}">
@@ -12,4 +16,4 @@
 <app-pagination
   *ngIf="paginationConfig !== null"
   [pagination]="paginationConfig"
-  (pageOrRecordsChange)="searchCurrencies($event)"></app-pagination>
+  (pageOrRecordsChange)="searchCurrenciesByPage($event)"></app-pagination>

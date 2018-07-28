@@ -13,6 +13,7 @@ import { HttpService } from './services/http.service';
 import { ConfigService } from './services/config.service';
 import { PaginationComponent } from './pagination/pagination.component';
 import { PaginationPipe } from './pipes/pagination.pipe';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { PaginationPipe } from './pipes/pagination.pipe';
     CurrenciesComponent,
     CurrencyDetailComponent,
     PaginationComponent,
-    PaginationPipe
+    PaginationPipe,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

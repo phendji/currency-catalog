@@ -1,35 +1,38 @@
-<select id="recordsPerPage" class="form-control" (change)="onChangeRecordsPerPage($event)" [(ngModel)]="pagination.recordsPerPage">
-  <option *ngFor="let records of pagination.recordsPerPageOptions" [value]="records">{{records}}</option>
-</select>
+<div *ngIf="pagination.totalPages > pagination.recordsPerPage">
+  <select id="recordsPerPage" class="form-control" (change)="onChangeRecordsPerPage($event)" [(ngModel)]="pagination.recordsPerPage">
+    <option *ngFor="let records of pagination.recordsPerPageOptions" [value]="records">{{records}}</option>
+  </select>
 
-<div class="first-page">
-  <li>
-    <a class="{{ isActivated('firstPage') ? 'disabled' : ''}}" (click)="setCurrentPage(pagination.firstPage)"> << </a>
-  </li>
-</div>
+  <div class="first-page">
+    <li>
+      <a class="{{ isActivated('firstPage') ? 'disabled' : ''}}" (click)="setCurrentPage(pagination.firstPage)">
+        << </a>
+    </li>
+  </div>
 
-<div class="prev-page">
-  <li>
-    <a class="{{ isActivated('prevPage') ? 'disabled' : ''}}" (click)="setCurrentPage(pagination.prevPage)"> prev </a>
-  </li>
-</div>
+  <div class="prev-page">
+    <li>
+      <a class="{{ isActivated('prevPage') ? 'disabled' : ''}}" (click)="setCurrentPage(pagination.prevPage)"> prev </a>
+    </li>
+  </div>
 
 
-<!--  [ngForOf]="(pagination.totalRecords/pagination.rows) | pagination :[pagination.currentPage, 2]" -->
-<ng-template ngFor let-numPage [ngForOf]="pagination.totalPages | pagination : [pagination.currentPage, 4]" let-i="index">
-  <li class="{{(numPage === pagination.currentPage ? 'active' : '')}}">
-    <a class="{{(numPage === pagination.currentPage ? 'disabled' : '')}}" (click)="setCurrentPage(numPage)">{{numPage}}</a>
-  </li>
-</ng-template>
+  <ng-template ngFor let-numPage [ngForOf]="pagination.totalPages | pagination : [pagination.currentPage, 4]" let-i="index">
+    <li class="{{(numPage === pagination.currentPage ? 'active' : '')}}">
+      <a class="{{(numPage === pagination.currentPage ? 'disabled' : '')}}" (click)="setCurrentPage(numPage)">{{numPage}}</a>
+    </li>
+  </ng-template>
 
-<div class="next-page">
-  <li>
-    <a class="{{ isActivated('nextPage') ? 'disabled' : ''}}" (click)="setCurrentPage(pagination.nextPage)"> next </a>
-  </li>
-</div>
+  <div class="next-page">
+    <li>
+      <a class="{{ isActivated('nextPage') ? 'disabled' : ''}}" (click)="setCurrentPage(pagination.nextPage)"> next </a>
+    </li>
+  </div>
 
-<div class="last-page">
-  <li>
-    <a class="{{ isActivated('lastPage') ? 'disabled' : ''}}" (click)="setCurrentPage(pagination.lastPage)"> >> </a>
-  </li>
+  <div class="last-page">
+    <li>
+      <a class="{{ isActivated('lastPage') ? 'disabled' : ''}}" (click)="setCurrentPage(pagination.lastPage)"> >> </a>
+    </li>
+  </div>
+
 </div>

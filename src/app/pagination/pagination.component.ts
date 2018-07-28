@@ -13,22 +13,17 @@ export class PaginationComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.log('pagination : ', this.pagination);
-  }
+  ngOnInit() { }
 
-  onChangeRecordsPerPage(event) {
+  public onChangeRecordsPerPage(event) {
     const defaultCurrentPage = 1;
     this.pagination.recordsPerPage = event.target.value;
     this.pagination.currentPage = defaultCurrentPage;
     this.pageOrRecordsChange.emit(JSON.parse(JSON.stringify(this.pagination)));
   }
 
-  setCurrentPage(page: number) {
-    console.log('page : ', page);
-    console.log('this.pagination :', this.pagination);
+  public setCurrentPage(page: number) {
     this.pagination.currentPage = page;
-
     this.pageOrRecordsChange.emit(JSON.parse(JSON.stringify(this.pagination)));
   }
 

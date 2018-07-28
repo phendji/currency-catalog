@@ -1,0 +1,13 @@
+<p>
+  search works!
+</p>
+
+<form #heroForm="ngForm" (keydown)="onKeydown($event)">
+  <input type="text" class="form-control" id="search" [(ngModel)]="filters.text" name="search">
+  <select
+    class="form-control" id="attribute" name="attribute"
+    (change)="onChange($event)"
+    [(ngModel)]="filters.attribute">
+    <option *ngFor="let atr of attributes" [value]="atr">{{atr}}</option>
+  </select>
+</form>

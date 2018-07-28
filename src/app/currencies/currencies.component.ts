@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrenciesService } from '../services/currencies.service';
-import { Currencies } from '../interfaces/currencies';  // not use
 import { Pagination } from '../interfaces/pagination';
+import { Criteria } from '../interfaces/criteria';
 
 @Component({
   selector: 'app-currencies',
@@ -13,6 +13,7 @@ export class CurrenciesComponent implements OnInit {
   public currencies: any;
   public titlePage: string;
   public paginationConfig: Pagination;
+  private criteria: Criteria;
 
   constructor(
     private currenciesService: CurrenciesService
@@ -29,15 +30,16 @@ export class CurrenciesComponent implements OnInit {
       nextPage: null,
       lastPage: null
     };
+
+    this.criteria = { filters: null, page: { currentPage: 1, recordsPerPage: 10 } };
   }
 
   ngOnInit() {
-    this.getCurrenciesWithParams(this.paginationConfig.recordsPerPage, this.paginationConfig.currentPage);
+    this.getCurrencies(this.criteria);
   }
 
-  private getCurrenciesWithParams(recordsPerPage: number, currentPage: number) {
-    this.currenciesService.getListOfCurrencies(recordsPerPage, currentPage).subscribe(res => {
-      console.log('currencies :', res);
+  private getCurrencies(criteria: Criteria) {
+    this.currenciesService.getListOfCurrencies(criteria).subscribe(res => {
       this.paginationConfig = this.updatePaginationConfig(res);
       this.currencies = res['data'];
     });
@@ -65,8 +67,18 @@ export class CurrenciesComponent implements OnInit {
     return (res['links'][nav] !== undefined) ? +res['links'][nav].split('page[number]=')[1].split('&')[0] : null;
   }
 
-  public searchCurrencies(event: any) {
+  public searchCurrenciesByPage(event: any) {
     const pagination = event;
-    this.getCurrenciesWithParams(pagination.recordsPerPage, pagination.currentPage);
+    this.criteria.page.currentPage = pagination.currentPage;
+    this.criteria.page.recordsPerPage = pagination.recordsPerPage;
+    this.getCurrencies(this.criteria);
+  }
+
+  public searchCurrenciesByFilters(event: any) {
+    const filters = event;
+    this.criteria.filters = filters;
+    this.criteria.page.currentPage = 1;
+    this.criteria.page.recordsPerPage = 10;
+    this.getCurrencies(this.criteria);
   }
 }
