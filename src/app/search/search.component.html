@@ -1,13 +1,15 @@
-<p>
-  search works!
-</p>
+<div id="search" class="block-search">
+  <form #heroForm="ngForm" class="row" (keydown)="onKeydown($event)">
+    <div class="col-3">
+      <span class="icon-addon"><i class="fas fa-search"></i></span>
+      <input type="text" class="form-control" id="text" [(ngModel)]="filters.text" name="text">
+    </div>
+    <div class="col-2">
+      <select class="custom form-control" id="attribute" name="attribute" (change)="onChange($event)" [(ngModel)]="filters.attribute">
+        <option *ngFor="let atr of attributes" [value]="atr">{{atr}}</option>
+      </select>
+    </div>
+  </form>
+</div>
+  
 
-<form #heroForm="ngForm" (keydown)="onKeydown($event)">
-  <input type="text" class="form-control" id="search" [(ngModel)]="filters.text" name="search">
-  <select
-    class="form-control" id="attribute" name="attribute"
-    (change)="onChange($event)"
-    [(ngModel)]="filters.attribute">
-    <option *ngFor="let atr of attributes" [value]="atr">{{atr}}</option>
-  </select>
-</form>

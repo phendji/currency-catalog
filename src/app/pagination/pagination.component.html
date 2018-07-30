@@ -1,38 +1,38 @@
-<div *ngIf="pagination.totalPages > pagination.recordsPerPage">
-  <select id="recordsPerPage" class="form-control" (change)="onChangeRecordsPerPage($event)" [(ngModel)]="pagination.recordsPerPage">
+<div *ngIf="pagination.totalPages > pagination.pages" class="pagination">
+  <select id="recordsPerPage" class="form-control custom" (change)="onChangeRecordsPerPage($event)" [(ngModel)]="pagination.recordsPerPage">
     <option *ngFor="let records of pagination.recordsPerPageOptions" [value]="records">{{records}}</option>
   </select>
 
-  <div class="first-page">
-    <li>
-      <a class="{{ isActivated('firstPage') ? 'disabled' : ''}}" (click)="setCurrentPage(pagination.firstPage)">
-        << </a>
+ 
+    <li class="{{ isActivated('firstPage') ? 'disabled' : ''}}">
+      <a (click)="setCurrentPage(pagination.firstPage)">
+        <strong> << </strong> 
+      </a>
     </li>
-  </div>
+ 
 
-  <div class="prev-page">
-    <li>
-      <a class="{{ isActivated('prevPage') ? 'disabled' : ''}}" (click)="setCurrentPage(pagination.prevPage)"> prev </a>
+  
+    <li class="previous {{ isActivated('prevPage') ? 'disabled' : ''}}">
+      <a (click)="setCurrentPage(pagination.prevPage)"> Previous </a>
     </li>
-  </div>
+
 
 
   <ng-template ngFor let-numPage [ngForOf]="pagination.totalPages | pagination : [pagination.currentPage, 4]" let-i="index">
-    <li class="{{(numPage === pagination.currentPage ? 'active' : '')}}">
-      <a class="{{(numPage === pagination.currentPage ? 'disabled' : '')}}" (click)="setCurrentPage(numPage)">{{numPage}}</a>
+    <li class="{{(numPage === pagination.currentPage ? 'active disabled' : '')}}">
+      <a (click)="setCurrentPage(numPage)">{{numPage}}</a>
     </li>
   </ng-template>
 
-  <div class="next-page">
-    <li>
-      <a class="{{ isActivated('nextPage') ? 'disabled' : ''}}" (click)="setCurrentPage(pagination.nextPage)"> next </a>
+  
+    <li class="next {{ isActivated('nextPage') ? 'disabled' : ''}}">
+      <a (click)="setCurrentPage(pagination.nextPage)"> Next </a>
     </li>
-  </div>
 
-  <div class="last-page">
-    <li>
-      <a class="{{ isActivated('lastPage') ? 'disabled' : ''}}" (click)="setCurrentPage(pagination.lastPage)"> >> </a>
+    <li class="{{ isActivated('lastPage') ? 'disabled' : ''}}">
+      <a (click)="setCurrentPage(pagination.lastPage)">
+        <strong> >> </strong>
+      </a>
     </li>
-  </div>
 
 </div>

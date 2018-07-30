@@ -14,6 +14,7 @@ import { ConfigService } from './services/config.service';
 import { PaginationComponent } from './pagination/pagination.component';
 import { PaginationPipe } from './pipes/pagination.pipe';
 import { SearchComponent } from './search/search.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SearchComponent } from './search/search.component';
     CurrencyDetailComponent,
     PaginationComponent,
     PaginationPipe,
-    SearchComponent
+    SearchComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

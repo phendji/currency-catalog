@@ -23,13 +23,11 @@ export class SearchComponent implements OnInit {
 
   public onKeydown(event) {
     if (event.key === 'Enter') {
-      console.log('foobar : ', this.filters);
       this.filtersEmit.emit(this.filters);
     }
   }
 
   public onChange(event) {
-    console.log('foobar : ', this.filters);
     this.filtersEmit.emit(this.filters);
   }
 

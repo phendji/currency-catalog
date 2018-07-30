@@ -3,15 +3,28 @@
 <app-search
   (filtersEmit)="searchCurrenciesByFilters($event)"></app-search>
 
-<ul>
-  <li *ngFor="let currency of currencies">
-    <a routerLink="/currencies/{{currency.id}}">
-      <span>ID: {{currency.id}}</span>
-      <span>Type: {{currency.attributes.currency_type}}</span>
-      <span>Symbol: {{currency.attributes.symbol}}</span>
-    </a>
-  </li>
-</ul>
+  <ul *ngIf="currencies !== undefined && currencies.length !== 0 else blockCurrenciesNotFound" class="currencies">
+    <li *ngFor="let currency of currencies">
+      <a routerLink="/currencies/{{currency.id}}">
+        <div class="symbol">
+          <p class="label"> symbol </p>
+          <p>{{currency.attributes.symbol}}</p>
+        </div>
+        <div class="others">
+          <p>
+            Id: <span>{{currency.id}}</span>
+          </p>
+          <p>
+            Type: <span>{{currency.attributes.currency_type}}</span>
+          </p>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+  <ng-template  #blockCurrenciesNotFound>
+      No data found
+  </ng-template>
 
 <app-pagination
   *ngIf="paginationConfig !== null"

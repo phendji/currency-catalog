@@ -1,0 +1,25 @@
+@import "../../assets/scss/variables.scss";
+@import "../../assets/scss/base.scss";
+
+.block-search {
+    margin: $margin30px $margin-none $margin30px $margin-none;
+}
+
+.form-control, .custom {
+    height: 30px !important;
+    padding: 5px 10px 5px 30px;
+    font-size: 13px;
+    border-radius: 0.25rem;
+}
+
+.custom{
+    padding: 5px;
+}
+
+.icon-addon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 10px;
+}

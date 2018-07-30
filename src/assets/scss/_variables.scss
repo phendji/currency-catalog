@@ -1,0 +1,34 @@
+// Variables
+// Override the Bootstrap defaults css, and setting the style variables
+
+// Table of Contents
+//
+// Fonts
+// Colors
+
+$font-family-arial: Arial, sans-serif !default;
+$font-family-calibri: Calibri;
+$font-family-base: $font-family-arial !default;
+
+$font-normal: 400;
+$font-bold: 700;
+
+$font-size9px:  0.563rem;
+$font-size12px: 0.75rem;
+$font-size13px: 0.8125rem;
+$font-size14px: 0.875rem;
+$font-size16px: 1rem;
+$font-size20px: 1.25rem;
+$font-size28px: 1.75rem;
+
+$bg-color: #ecf0f1;
+$white-color: #fff;
+
+/**** Margin ****/
+$margin-none: 0px;
+$margin10px: 0.625rem;
+$margin30px: 1.875rem;
+
+/**** Padding ****/
+$padding-none: 0px;
+$padding10px: 0.625rem;

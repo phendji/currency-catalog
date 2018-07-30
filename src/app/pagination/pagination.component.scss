@@ -1,3 +1,36 @@
+
+@import "../../assets/scss/variables.scss";
+@import "../../assets/scss/base.scss";
+
 .disabled{
     pointer-events: none;
 }
+
+.form-control, .custom {
+    height: 30px !important;
+    padding: 5px;
+    font-size: $font-size13px;
+    border-radius: 0.25rem;
+    width: 58px;
+    margin-right: $margin10px;
+}
+
+.pagination li {
+    cursor: pointer;
+    margin-right: $margin10px;
+    text-align: center;
+    height: 30px;
+    border-radius: 0.25rem;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    a {
+        padding: 3px 13px;
+        line-height: 30px;
+    }
+    
+}
+
+.pagination li.active {
+    background-color: #607D8B;
+    color: $white-color;
+} 

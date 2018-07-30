@@ -1,0 +1,46 @@
+// Base tag Html, override basic css browser behavior
+@import "variables";
+
+* {
+  font-family: $font-family-base;
+  outline: none !important;
+}
+
+body {
+  font-weight: $font-normal;
+  background: $bg-color !important;
+  font-size: $font-size14px !important;
+  overflow-x: hidden;
+}
+
+ul {
+  list-style-type: none;
+  margin: $margin-none;
+  padding: $padding-none;
+}
+
+i {
+  font-family: FontAwesome;
+}
+
+h1 {
+  font-family: $font-family-calibri, $font-family-arial;
+  font-size:  $font-size28px;
+  font-weight: $font-bold;
+}
+
+p {
+  margin: $margin-none;
+  padding: $padding-none;
+}
+
+a {
+  cursor: pointer;
+  &:hover,&:focus {
+    text-decoration: none;
+  }
+}
+
+.disabled{
+  pointer-events: none;
+}

@@ -1,0 +1,26 @@
+
+@import "../../assets/scss/variables.scss";
+@import "../../assets/scss/base.scss";
+
+.currency-detail ul {
+    margin: $margin10px;
+    font-size: $font-size16px;
+}
+
+.label {
+    font-weight: $font-bold;
+    color: #607D8B; 
+}
+
+button {
+    background-color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: Arial;
+  }
+  
+  button:hover {
+    background-color: #cfd8dc;
+  }
