@@ -1,4 +1,4 @@
-<div *ngIf="pagination.totalPages > pagination.pages" class="pagination">
+<div *ngIf="pagination.totalRecords >= pagination.totalPages" class="pagination">
   <select id="recordsPerPage" class="form-control custom" (change)="onChangeRecordsPerPage($event)" [(ngModel)]="pagination.recordsPerPage">
     <option *ngFor="let records of pagination.recordsPerPageOptions" [value]="records">{{records}}</option>
   </select>
